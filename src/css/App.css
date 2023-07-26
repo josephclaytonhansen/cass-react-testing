@@ -1,0 +1,25 @@
+main{
+    padding: max(2rem, 1vw);
+}
+
+@media screen and (max-width: 992px){
+    .display-mobile{
+        display: flex!important;
+    }
+    .display-desktop{
+        display: none!important;
+    }
+    }
+    
+    @media screen and (min-width: 992px){
+    .display-mobile{
+        display: none!important;
+    }
+    .display-desktop{
+        display: flex!important;
+    }
+    }
+
+    .no-dec *{
+        text-decoration: none!important;
+    }

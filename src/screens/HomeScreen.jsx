@@ -1,10 +1,17 @@
 import React from 'react'
+import { Container, Row, Col } from 'react-bootstrap'
 
 const Home = () => {
     return (
-        <div>
-            <h1>Home</h1>
-        </div>
+        <main>
+            <Container>
+                <Row>
+                    <Col>
+                        <h1>Home</h1>
+                    </Col>
+                </Row>
+            </Container>
+        </main>
     )
 }
 
