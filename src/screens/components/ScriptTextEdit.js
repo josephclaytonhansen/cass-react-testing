@@ -5,7 +5,6 @@ import {Form, FormGroup, FormControl} from "react-bootstrap"
 import Rangy from "rangy"
 
 import {lineTab} from "../../utils/lines/lineTab"
-import { act } from "react-dom/test-utils"
 
 const ScriptTextEdit = ({defaultValue, className, style}) => {
 
