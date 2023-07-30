@@ -6,6 +6,8 @@ import Rangy from "rangy"
 
 import {lineTab} from "../../utils/lines/lineTab"
 
+import convertText from "../../utils/lines/convertText"
+
 const ScriptTextEdit = ({defaultValue, className, style}) => {
 
     let [text, setText] = useState('')
@@ -18,8 +20,11 @@ const ScriptTextEdit = ({defaultValue, className, style}) => {
 
     const updateTextHandler = (_id) => {
         try{
-            setText(document.getElementById(_id).innerText)
+            let el = document.getElementById(_id)
+            setText(el.innerText)
+
             lines = text.split('\n')
+            console.log(lines)
             setLines(lines)
         } catch (e) {
             setText('')
