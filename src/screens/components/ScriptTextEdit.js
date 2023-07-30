@@ -13,6 +13,9 @@ const ScriptTextEdit = ({defaultValue, className, style}) => {
     let [activeLine, setActiveLine] = useState(0)
     let [selection, setSelection] = useState({})
 
+    let [showCharacterDropdown, setShowCharacterDropdown] = useState(false)
+    let [characterDropdownPosition, setCharacterDropdownPosition] = useState({x: 0, y: 0})
+
     const updateTextHandler = (_id) => {
         try{
             setText(document.getElementById(_id).innerText)
@@ -45,7 +48,6 @@ const ScriptTextEdit = ({defaultValue, className, style}) => {
         updateActiveLineHandler(e.target.id)
 
         if (e.keyCode === 9) {
-            e.preventDefault()
             lineTab(lines[activeLine], activeLine)
         }
         else if (e.keyCode === 13){
@@ -54,10 +56,16 @@ const ScriptTextEdit = ({defaultValue, className, style}) => {
 
     }
 
+    const preventDefaultHandler = (e) => {
+        if (e.keyCode === 9) {
+            e.preventDefault()
+        }
+    }
+
     return (
         <Form className={className} style={style}>
             <FormGroup controlId="scriptText">
-                <div contentEditable="true" onKeyDown={keyHandler} onKeyUp={keyHandler} id={'entry'}>
+                <div contentEditable="true" onKeyUp={keyHandler} onKeyDown={preventDefaultHandler} id={'entry'}>
                     {defaultValue}
                 </div>
             </FormGroup>
